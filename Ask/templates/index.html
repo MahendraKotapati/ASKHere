@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content2 %}  
+    {% if answers %}
+
+        {% for question,answer in answers.items %}
+            <p class="question-display"> 
+               Q{{forloop.counter}}) {{ question.question_text }}
+            </p>
+            <p class="user-display"> 
+                asked by:<span> {{  question.created_by.username }} </span>  
+            </p>
+            {% for a in answer %} 
+                <p class="answer-display">  A){{ a.answer_text }}  </p> 
+                <p class="user-display"> -<span> {{ a.answerd_by.username }} </span>  </p>
+            {% endfor %}
+            <div style="text-align: center;"><a href="{% url 'add_answer' que_id=question.id %}"> add answer </a> </div>
+            <hr>     
+        {% endfor %}
+
+    {% else %}
+        <p> OOPs, No questions Yet .</p>
+        <p> Ask now </p>
+    {% endif %}
+          
+{% endblock %}
+

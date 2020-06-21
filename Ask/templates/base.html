@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE  html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title> ASKHere </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'default.css' %}">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class = "active"> <a href="{% url 'index' %}">Home</a> </li>
+                    <li> <a href="#">About</a> </li>
+                    <li> <a href="#">Notifications</a> </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div class="row"> 
+            <div class="col-md-2" style="text-align: center;padding-top: 6px;"><a href="{% url 'index' %}"> ASKHERE </a> </div> 
+            <div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question"> </div> 
+
+            <a href="{% url 'post_question' %}">
+                <div class="col-md-3 btn btn-warning" role="button"> Ask Question </div> 
+            </a>
+        </div>
+
+        <div class="row">
+            <hr>
+            <div class="col-md-2"> 
+                <ul style="list-style-type:none;">
+                    <li> <a href="{% url 'index' %}">Feed</a> </li>
+                    <li><a href="{% url 'filter' topic_id=1 %}">C</a> </li>
+                    <li><a href="{% url 'filter' topic_id=2 %}">C++</a></li>
+                    <li><a href="{% url 'filter' topic_id=3 %}">Java</a></li>
+                    <li><a href="{% url 'filter' topic_id=4 %}">Python</a></li>
+                </ul>
+            </div>  
+            <div class="col-md-7">
+                {% block content2 %}{% endblock %}
+            </div>
+            <div class="col-md-3">
+                {% block content3 %}{% endblock %}
+            </div> 
+             
+        </div>
+        <div class="row container-fluid" style="background-color: lightgreen;width: 100%;height: auto;">
+            <div class="col-md-4"> 
+                <h4> Team @ASKHere</h4>
+                <ul> 
+                    <li>17131A05A8</li><li>17131A05A9</li><li>17131A05B1</li><li>17131A05B2</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3 style="text-align: center;"> About </h3>
+               <p> 
+                A question answers platform where users can share their knowledge and views about a topic 
+                and post questions and get answers , also the answer questions .
+                </p>
+            </div>
+            <div class="col-md-4"> 
+                <h3 style="text-align: center;"> Contact Us: </h3>
+                <p style="text-align: center;"> team@askhere.com </p>
+            </div>
+        </div>
+        
+    </div>
+    <footer>
+        <hr style="border:0;height: 2px; background:black "/>
+        <p style="text-align: center;">&copy ASKHere 2020 |   <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>
