@@ -9,8 +9,8 @@ class UserLogin(models.Model):
 
 class Interest(models.Model):
     topic = models.CharField(max_length=30)
-    def __str__(self):
-        return self.topic
+    #def __str__(self):
+    #    return str(self.topic)
 
 
 

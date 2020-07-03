@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content2 %}
-    <form method="POST"> {% csrf_token %}
-        <div class="container">
-            {{ form.as_p }}
-            <button type="submit" class="svae btn btn-default">Save </button>
+    <form method="POST" class="form-signin"> {% csrf_token %}
+        <div class="container form-display">
+            {{ form.as_table }}<br>
+            <button type="submit" class="save btn btn-primary">Save </button>
         </div>
     </form>
 {% endblock %}

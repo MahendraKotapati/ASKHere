@@ -10,15 +10,45 @@
     opacity: 0.7;
 }
 .answer-display{
-    color: green;
+    color:rgb(12, 2, 2);
     font-style: italic;
-    opacity: 0.7;
+    opacity: 1;
 }
-a{
-    color:black;
-    text-decoration: none;
-}
-a:hover{
-    color:black;
-    text-decoration: none;
+ 
+/*.form-signin {
+    width: 100%;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff; 
+    border: 1px solid rgba(0,0,0,0.1);
+  
+    .form-signin-heading, .checkbox {
+            margin-bottom: 30px;
+        }
+    
+        .checkbox {
+            font-weight: normal;
+        }
+    
+        .form-control {
+            position: relative;
+            font-size: 16px;
+            height: 100%;
+            padding: 10px;
+            @include box-sizing(border-box);
+            &:focus {
+                z-index: 2;
+            }
+        }
+  }
+  
+  */
+  .form-display {
+      width: 100%;
+  }
+
+.middle-display{
+     
+    border: 1px solid green;
+     
 }

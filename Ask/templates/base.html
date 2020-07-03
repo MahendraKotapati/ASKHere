@@ -29,17 +29,24 @@
                     <li> <a href="#">About</a> </li>
                     <li> <a href="#">Notifications</a> </li>
                 </ul>
-
+                
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% if user.is_authenticated %}
+                        <li> <a href="#">{{ user.username }} </a> </li>
+                        <li> <a href="{% url 'logout' %}">logout </a> </li>
+                    {%  else  %}
+                    <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
                 </ul>
 
             </div>
         </nav>
 
         <div class="row"> 
-            <div class="col-md-2" style="text-align: center;padding-top: 6px;"><a href="{% url 'index' %}"> ASKHERE </a> </div> 
+            <div class="col-md-2" style="text-align: center;padding-top: 6px;">
+                <a href="{% url 'index' %}"> <img src="{% static  'logo2.jpg' %}"> </a> 
+            </div> 
             <div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question"> </div> 
 
             <a href="{% url 'post_question' %}">
@@ -58,7 +65,7 @@
                     <li><a href="{% url 'filter' topic_id=4 %}">Python</a></li>
                 </ul>
             </div>  
-            <div class="col-md-7">
+            <div class="col-md-7 middle-display">
                 {% block content2 %}{% endblock %}
             </div>
             <div class="col-md-3">
