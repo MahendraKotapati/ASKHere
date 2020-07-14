@@ -4,9 +4,11 @@
 {% block content2 %}
     <form method="POST" class="form-signin"> {% csrf_token %}
         <div class="container form-display">
+            <br>
             <p class="question-display">Q){{ question_text }} </p>
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save </button>
+            {{ form.as_p }} 
+            <button type="submit" class="save btn btn-primary">Submit </button>
+            <br>
         </div>
     </form>
 {% endblock %}

@@ -3,7 +3,7 @@
 <html >
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
     <meta name="viewport" content="width=device-width , initial-scale=1">
     <title> ASKHere </title>
 
@@ -20,20 +20,29 @@
 
 </head>
 
-<body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+<body  style="background-color: aliceblue;">
+  
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container"> 
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index' %}">Ask Here</a>
+                  </div>
                 <ul class="nav navbar-nav">
-                    <li class = "active"> <a href="{% url 'index' %}">Home</a> </li>
-                    <li> <a href="#">About</a> </li>
-                    <li> <a href="#">Notifications</a> </li>
+                     
+                    <li class ={% if page == 'index' %} "active" {% endif %} > <a href="{% url 'index' %}">Home</a> </li>
+                    <li class ={% if page == 'about' %} "active" {% endif %} > <a href="{% url 'about' %}">About</a> </li>
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
+                    
                     {% if user.is_authenticated %}
-                        <li> <a href="#">{{ user.username }} </a> </li>
-                        <li> <a href="{% url 'logout' %}">logout </a> </li>
+                         
+                        <li>  <a href="#" class="username-display"><p style="color: white;">{{ user.username }}</p>   </a>  </li>
+                        <li> 
+                            <a href="{% url 'logout' %}" class="right-nav-display">     
+                              <button type="button" class="btn btn-danger">logout </button>
+                            </a> 
+                        </li> 
                     {%  else  %}
                     <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -42,63 +51,36 @@
 
             </div>
         </nav>
-
-        <div class="row"> 
-            <div class="col-md-2" style="text-align: center;padding-top: 6px;">
-                <a href="{% url 'index' %}"> <img src="{% static  'logo2.jpg' %}"> </a> 
-            </div> 
-            <div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question"> </div> 
-
-            <a href="{% url 'post_question' %}">
-                <div class="col-md-3 btn btn-warning" role="button"> Ask Question </div> 
-            </a>
-        </div>
-
-        <div class="row">
-            <hr>
-            <div class="col-md-2"> 
-                <ul style="list-style-type:none;">
-                    <li> <a href="{% url 'index' %}">Feed</a> </li>
-                    <li><a href="{% url 'filter' topic_id=1 %}">C</a> </li>
-                    <li><a href="{% url 'filter' topic_id=2 %}">C++</a></li>
-                    <li><a href="{% url 'filter' topic_id=3 %}">Java</a></li>
-                    <li><a href="{% url 'filter' topic_id=4 %}">Python</a></li>
-                </ul>
-            </div>  
-            <div class="col-md-7 middle-display">
-                {% block content2 %}{% endblock %}
-            </div>
-            <div class="col-md-3">
-                {% block content3 %}{% endblock %}
-            </div> 
-             
-        </div>
-        <div class="row container-fluid" style="background-color: lightgreen;width: 100%;height: auto;">
-            <div class="col-md-4"> 
-                <h4> Team @ASKHere</h4>
-                <ul> 
-                    <li>17131A05A8</li><li>17131A05A9</li><li>17131A05B1</li><li>17131A05B2</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3 style="text-align: center;"> About </h3>
-               <p> 
-                A question answers platform where users can share their knowledge and views about a topic 
-                and post questions and get answers , also the answer questions .
-                </p>
-            </div>
-            <div class="col-md-4"> 
-                <h3 style="text-align: center;"> Contact Us: </h3>
-                <p style="text-align: center;"> team@askhere.com </p>
+        <br><br> <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"> 
+                    <ul style="list-style-type:none;">
+                        <li><a href="{% url 'index' %}"> 
+                                <button class="btn btn-basic btn-sm btn-block"> Feed  </button> 
+                            </a> 
+                        </li> <br>
+                        {% for t in topics %}
+                            <li>
+                                <a href="{% url 'filter' topic_id=t.id %}" role="button"> 
+                                    <button class="btn btn-basic btn-sm btn-block">{{ t.topic }} </button>  
+                                </a>  
+                            </li>        
+                            <br>
+                        {% endfor %}
+                    </ul>
+                </div>  
+                <div class="col-md-9 middle-display">
+                    {% block content2 %}{% endblock %}
+                </div>
+                <div class="col-md-1">
+                    {% block content3 %}{% endblock %}
+                    <a href="{% url 'post_question' %}">
+                        <button type="button" class="btn btn-info"> Post Question</button> 
+                    </a>
+                </div>    
             </div>
         </div>
-        
-    </div>
-    <footer>
-        <hr style="border:0;height: 2px; background:black "/>
-        <p style="text-align: center;">&copy ASKHere 2020 |   <a href="#">Privacy Policy</a></p>
-    </footer>
-
 </body>
 
 </html>

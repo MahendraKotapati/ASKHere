@@ -11,8 +11,8 @@ class InterestAdmin(admin.ModelAdmin):
     def interest_title(self,obj):
         return obj.topic
 
-#class QuestionAdmin(admin.ModelAdmin):
-#    form = QuestionForm
+#lass QuestionAdmin(admin.ModelAdmin):
+#   form = QuestionForm
 	
 admin.site.register(UserLogin)
 admin.site.register(Interest,InterestAdmin)

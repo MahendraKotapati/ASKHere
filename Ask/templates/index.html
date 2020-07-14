@@ -4,25 +4,36 @@
 
 {% block content2 %}  
     {% if answers %}
-
+        <br>
         {% for question,answer in answers.items %}
+        <div>
             <p class="question-display"> 
-               Q{{forloop.counter}}) {{ question.question_text }}
+               Q{{forloop.counter}} {{ question.question_text }}
             </p>
             <p class="user-display"> 
-                asked by:<span> {{  question.created_by.username }} </span>  
+                asked by:<span> {{  question.created_by.username }} </span>  <br>  <span> {{ question.created_date }}</span>
             </p>
             {% for a in answer %} 
                 <p class="answer-display">  A){{ a.answer_text }}  </p> 
                 <p class="user-display"> -<span> {{ a.answerd_by.username }} </span>  </p>
             {% endfor %}
-            <div style="text-align: center;"><a href="{% url 'add_answer' que_id=question.id %}"> add answer </a> </div>
-            <hr>     
+
+            <div style="text-align: center;">
+                <a href="{% url 'add_answer' que_id=question.id %}">  
+                    <button type="button" class="btn btn-success">add your answer </button>
+                </a>  
+            </div>
+            <hr style="border-width: 3px;">   
+        </div> 
+
         {% endfor %}
 
     {% else %}
-        <p> OOPs, No questions Yet .</p>
-        <p> Ask now </p>
+        <br>
+        <p> Sorry, No questions Yet .</p>    
+            <a href="{% url 'post_question' %}">
+                <button type="button" class="btn btn-info">Post Question</button> 
+            </a> 
     {% endif %}
           
 {% endblock %}

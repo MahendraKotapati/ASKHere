@@ -6,6 +6,8 @@ def get_topics():
     return  [(interest.id, interest.topic) for interest in Interest.objects.all()]
 
 class QuestionForm(forms.ModelForm):
+
+    question_text = forms.CharField(widget=forms.Textarea )
     class Meta:
         model = Question
         fields = ('question_text','topic_id')
@@ -22,6 +24,8 @@ class QuestionForm(forms.ModelForm):
 
 
 class AnswerForm(forms.ModelForm):
+
+    answer_text = forms.CharField(widget=forms.Textarea )
     class Meta:
         model = Answer
         fields = ('answer_text',)

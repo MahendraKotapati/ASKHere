@@ -27,6 +27,7 @@ class Question(models.Model):
     created_by = models.ForeignKey(UserLogin,on_delete = models.CASCADE)
     topic_id = models.ForeignKey(Interest,on_delete=models.CASCADE)
     created_date = models.DateTimeField()
+    
 
     
 
