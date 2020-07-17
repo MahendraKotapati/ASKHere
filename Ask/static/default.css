@@ -26,9 +26,8 @@ a:link {
 
 .middle-display {
     /*border: 1px solid silver;  */
-    background-color:white;
+    background-color: white;
 }
-
 
 .navbar {
     overflow: hidden;
@@ -36,9 +35,9 @@ a:link {
     position: fixed;
     top: 0;
     width: 100%;
-  }
-  
-  .navbar a {
+}
+
+.navbar a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -46,20 +45,52 @@ a:link {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
-  .navbar a:hover {
-    background: #ddd;
+}
+
+.navbar a:hover {
+    background: white;
     color: black;
-  }
+}
 
-  .right-nav-display{
-    margin-bottom:-20px;
-    margin-top:-5px;
-  }
+.right-nav-display {
+    margin-bottom: -20px;
+    margin-top: -5px;
+}
 
-  .username-display{
-    margin-bottom:-20px;
-    margin-top:-3px;
+.username-display {
+    margin-bottom: -20px;
+    margin-top: -3px;
     font-weight: bold;
-  }
+}
+
+.first-half {
+    background-color: hsl(300, 76%, 72%);
+    font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    height: 380px;
+    padding: 19px 200px;
+}
+
+.second-half {
+    margin-top: 0px;
+    /*background-color: hsl(0, 100%, 90%);*/
+    font-size: 3em;
+    height: auto;
+    /*padding: 10px 200px; */
+}
+
+.third-display{
+    margin-top: 0px; 
+    background-color: hsl(0, 100%, 90%);
+    font-size:3em;
+    height: 380px;
+    padding: 10px 200px;
+}
+
+.about-display{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding-top: 90px;
+    text-align: center;
+}

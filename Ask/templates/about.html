@@ -1,17 +1,85 @@
-{% extends 'base.html'%} 
 {% load static %}
-{%  block content2 %}
-<div class="container">
+<!DOCTYPE  html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title> ASKHere </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'default.css' %}">
+
+</head>
+
+<body>
+  
+        <nav class="navbar navbar-default navbar-fixed-top" style="font-size: 1.1em;">
+            <div class="container"> 
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index' %}">Ask Here</a>
+                  </div>
+                <ul class="nav navbar-nav">
+                     
+                    <li class ={% if page == 'index' %} "active" {% endif %} > <a href="{% url 'index' %}">Home</a> </li>
+                    <li class ={% if page == 'about' %} "active" {% endif %} > <a href="{% url 'about' %}">About</a> </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    {% if user.is_authenticated %}
+                         
+                        <li>  <a href="#" class="username-display"><p style="color: white;">{{ user.username }}</p>   </a>  </li>
+                        <li> 
+                            <a href="{% url 'logout' %}" class="right-nav-display">     
+                              <button type="button" class="btn btn-danger">logout </button>
+                            </a> 
+                        </li> 
+                    {%  else  %}
+                    <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </nav>
+<div class="first-half">
     <div class="row">
-        <div class="col-md-12">
-        <p> A question answers platform where users can share their knowledge and 
-            views about a topic and post questions and get answers , also the answer questions .
-        </p>
-        <h4> Team @ASKHere</h4>
-        <ul>  <li>17131A05A8</li><li>17131A05A9</li><li>17131A05B1</li><li>17131A05B2</li>  </ul>
-        <h3> Contacts: </h3>
-        <h5><p> team@askhere.com </p></h5>
+        <div class="col-md-12 about-display">
+            <p> A question answers platform where users can share their knowledge and views about a topic and post questions and 
+                get answers ,and can  answer questions . </p>
         </div>
-    </div>      
+    </div>
+
 </div>
-{% endblock %}
+    <div class="second-half">
+        <img src="{% static 'team.png' %}">
+    </div>
+    <div class="third-display">
+        <div class="row">
+            <div class="col-md-6" style="padding-top: 30px;">
+                <p style="font-family: Arial, Helvetica, sans-serif;font-size: 30px;padding-top: 50px;text-align: center;"> Contact us: </p>
+                <a href="#" style="color:black;"><p style="padding-left: 130px;font-size: 25px;padding-top: 15px;"> team@askhere.com </p></a> 
+            </div>
+            <div class="col-md-6">
+                <p style="font-family: Arial, Helvetica, sans-serif;font-size: 30px;padding-top: 80px;text-align: center;"> Connect with us :</p>
+                <!--<a href="#"><i class="fa fa-google" style="font-size:36px;padding-left: 150px;"></i></a>-->
+                <!-- <i style="font-size:36px" class="fa" >&#xf230;</i>  --->
+                <a href="https://www.linkedin.com/in/mahendra-kotapati-48498a199/"><i class="fa fa-linkedin" style="font-size:36px;padding-left: 180px;"></i> </a>
+                <a href="https://github.com/MahendraKotapati"><i class="fa fa-github" style="font-size:36px"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

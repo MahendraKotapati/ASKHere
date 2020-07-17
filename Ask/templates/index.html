@@ -8,7 +8,7 @@
         {% for question,answer in answers.items %}
         <div>
             <p class="question-display"> 
-               Q{{forloop.counter}} {{ question.question_text }}
+               Q{{forloop.counter}}) {{ question.question_text }}
             </p>
             <p class="user-display"> 
                 asked by:<span> {{  question.created_by.username }} </span>  <br>  <span> {{ question.created_date }}</span>

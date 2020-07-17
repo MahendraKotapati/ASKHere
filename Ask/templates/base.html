@@ -20,7 +20,7 @@
 
 </head>
 
-<body  style="background-color: aliceblue;">
+<body  style="background-color: #f0f0f0;">
   
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container"> 
@@ -57,13 +57,13 @@
                 <div class="col-md-2"> 
                     <ul style="list-style-type:none;">
                         <li><a href="{% url 'index' %}"> 
-                                <button class="btn btn-basic btn-sm btn-block"> Feed  </button> 
+                                <button class="btn btn-default btn-sm btn-block"> Feed  </button> 
                             </a> 
                         </li> <br>
                         {% for t in topics %}
                             <li>
                                 <a href="{% url 'filter' topic_id=t.id %}" role="button"> 
-                                    <button class="btn btn-basic btn-sm btn-block">{{ t.topic }} </button>  
+                                    <button class="btn btn-default btn-sm btn-block">{{ t.topic }} </button>  
                                 </a>  
                             </li>        
                             <br>
